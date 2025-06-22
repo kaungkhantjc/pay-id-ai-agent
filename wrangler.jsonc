@@ -1,0 +1,39 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "pay-id-ai-agent",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-06-21",
+  "compatibility_flags": [
+    "nodejs_compat_v2"
+  ],
+  "vars": {
+    "GEMINI_MODEL": "gemini-2.5-flash-lite-preview-06-17",
+    "GEMINI_PROMPT": "You are given a photo of an e‑Receipt from a Myanmar mobile wallet (KBZ Pay, Wave Pay or AYA Pay mostly). Extract and return exactly this JSON:\n\n{\n  \"transaction_id\": \"<full transaction id or null>\",\n  \"reason\": \"<short reason for finding or not finding it>\",\n}\n\n1. transaction_id: look for lines labeled \"Transaction ID\" (AYA/Wave), \"လုပ်ဆောင်ချက်အိုင်ဒီ\" (Wave), \"Transaction No.\" or \"လုပ်ဆောင်မှုအမှတ်\" (KBZ), or any numeric string that resembles an ID. If unreadable or missing, set to null.\n2. reason: if found, note which label you used (e.g. \"Found 'Transaction No.' label\"); if not, give a concise cause (e.g. \"Too blurry\")."
+  }
+  // "kv_namespaces": [
+  //   {
+  //     "binding": "MY_KV_NAMESPACE",
+  //     "id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  //   }
+  // ],
+  // "r2_buckets": [
+  //   {
+  //     "binding": "MY_BUCKET",
+  //     "bucket_name": "my-bucket"
+  //   }
+  // ],
+  // "d1_databases": [
+  //   {
+  //     "binding": "MY_DB",
+  //     "database_name": "my-database",
+  //     "database_id": ""
+  //   }
+  // ],
+  // "ai": {
+  //   "binding": "AI"
+  // },
+  // "observability": {
+  //   "enabled": true,
+  //   "head_sampling_rate": 1
+  // }
+}
