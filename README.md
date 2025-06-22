@@ -19,6 +19,10 @@ Send an e-Receipt image via a simple HTTP request and get a structured JSON resp
 ```text
 POST /generate
 ```
+Demo API
+```text
+https://pay-id-ai-agent.jcoder.workers.dev/generate
+```
 
 Request body
 
