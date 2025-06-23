@@ -47,6 +47,7 @@ Request body
   "data": {
     "content": {
       "reason": "Found 'Transaction ID' label",
+      "app": "KBZ Pay",
       "transaction_id": "123456789"
     },
     "rawContent": "{\n  \"reason\": \"Found 'Transaction ID' label\",\n  \"transaction_id\": \"123456789\"\n}",

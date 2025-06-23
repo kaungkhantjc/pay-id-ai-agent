@@ -79,7 +79,8 @@ const generateInGemini = async (key: string, encodedImage: string) => {
                 type: 'object',
                 properties: {
                     transaction_id: {type: 'string'},
-                    reason: {type: 'string'}
+                    app: {type: 'string'},
+                    reason: {type: 'string'},
                 },
                 required: ['reason']
             }
@@ -116,6 +117,7 @@ const generateInGemini = async (key: string, encodedImage: string) => {
 const parseGeneratedText = (text: string) => {
     const generatedTextSchema = z.object({
         reason: z.string(),
+        app: z.string().nullable(),
         transaction_id: z.string().nullable(),
     })
 
