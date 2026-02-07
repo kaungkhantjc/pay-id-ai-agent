@@ -7,7 +7,7 @@
     "nodejs_compat_v2"
   ],
   "vars": {
-    "GEMINI_MODEL": "gemini-2.5-flash-lite-preview-06-17",
+    "GEMINI_MODEL": "gemini-flash-lite-latest",
     "GEMINI_PROMPT": "You are given a photo of an e‑Receipt from a Myanmar mobile wallet (KBZ Pay, Wave Pay or AYA Pay mostly). Extract and return exactly this JSON:\n\n{\n  \"transaction_id\": \"<full transaction id or null>\",\n  \"app\": \"<pay app name or null>\",\n  \"reason\": \"<short reason for finding or not finding it>\"\n}\n\n1. transaction_id: Look for lines labeled \"Transaction ID\" (AYA/Wave), \"လုပ်ဆောင်ချက်အိုင်ဒီ\" (Wave), \"Transaction No.\" or \"လုပ်ဆောင်မှုအမှတ်\" (KBZ), or any numeric string that resembles an ID. If unreadable or missing, set to null.\n\n2. app: Identify the wallet app by checking for any one of the following clues — it is not required to match all:\n - KBZ Pay\n\t- Blue-themed UI\n\t- \"KBZ Bank\" in red at top\n\t- Phrase \"Thank you for using KBZPay!\"\n\t- Blue circular icon with white checkmark at top center\n\t- Blue rectangular button at the bottom with white text\n\n - Wave Pay\n\t- Yellow-themed UI\n\t- \"Receipt by WAVE\" at bottom\n\n - AYA Pay\n\t- Black-themed UI\n\t- \"AYA Pay\" title\n\t- \"Powered by AYA Bank\" at bottom\nIf any clue matches, assign the app name accordingly. If none match or unclear, guess using AI intelligence. If the result is \"Unknown\", return null.\n\n3. reason: If transaction_id is found, note what label you used or how you found it (e.g. \"Found 'Transaction No.' label\"); If not found, explain why (e.g. \"Too blurry\" or \"Not an e‑Receipt\")."
   }
   // "kv_namespaces": [
